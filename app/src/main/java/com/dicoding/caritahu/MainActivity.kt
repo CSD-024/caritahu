@@ -1,4 +1,4 @@
-package com.unero.caritahu
+package com.dicoding.caritahu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
