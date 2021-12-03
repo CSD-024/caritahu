@@ -1,11 +1,39 @@
 package com.dicoding.caritahu
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.dicoding.caritahu.adapter.NewsAdapter
+import com.dicoding.caritahu.data.network.Article
+import com.dicoding.caritahu.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        viewModel.topHeadlines()
+
+        viewModel.headlines.observe(this, { response ->
+            if (response.articles!!.isNotEmpty()) {
+                setupRV(response.articles)
+            }
+        })
+    }
+
+    private fun setupRV(news: List<Article>) {
+        val adapter = NewsAdapter()
+        adapter.setData(news)
+        binding.rvNews.apply {
+            this.adapter = adapter
+            setHasFixedSize(true)
+        }
     }
 }
