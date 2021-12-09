@@ -1,9 +1,9 @@
-package com.dicoding.caritahu.adapter
+package com.dicoding.caritahu.ui.news
 
 import androidx.recyclerview.widget.DiffUtil
 import com.dicoding.caritahu.data.network.model.NewsArticle
 
-class DiffUtil(
+class NewsDiffUtil(
     private val oldList: List<NewsArticle>,
     private val newList: List<NewsArticle>
 ): DiffUtil.Callback() {

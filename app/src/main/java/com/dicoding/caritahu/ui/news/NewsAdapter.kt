@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.adapter
+package com.dicoding.caritahu.ui.news
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     private var data = listOf<NewsArticle>()
 
     fun setData(newData: List<NewsArticle>){
-        val diffUtil = DiffUtil(data, newData)
+        val diffUtil = NewsDiffUtil(data, newData)
         val diffResults = calculateDiff(diffUtil)
         data = newData
         diffResults.dispatchUpdatesTo(this)

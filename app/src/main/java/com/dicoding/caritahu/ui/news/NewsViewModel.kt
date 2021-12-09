@@ -1,4 +1,4 @@
-package com.dicoding.caritahu
+package com.dicoding.caritahu.ui.news
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,8 +9,7 @@ import com.dicoding.caritahu.data.network.model.NewsArticle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-class MainViewModel : ViewModel() {
+class NewsViewModel : ViewModel() {
     private var _headlines: MutableLiveData<List<NewsArticle>> = MutableLiveData()
     val headlines: LiveData<List<NewsArticle>> = _headlines
 
