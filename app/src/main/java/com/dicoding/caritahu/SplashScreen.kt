@@ -3,7 +3,6 @@ package com.dicoding.caritahu
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
@@ -11,6 +10,7 @@ import android.view.WindowInsetsController
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -20,11 +20,11 @@ import kotlinx.coroutines.launch
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        hideSystemUI()
-        actionBar?.hide()
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+
+        hideSystemUI()
+        actionBar?.hide()
 
         val topSplash: ImageView = findViewById(R.id.top_splash)
         val bottomSplash: ImageView = findViewById(R.id.bottom_splash)
