@@ -12,10 +12,6 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file('local.properties').newDataInputStream())
-        buildConfigField 'String', 'NEWS_KEY', properties.getProperty('NEWS_API_KEY')
     }
 
     buildTypes {
@@ -43,7 +39,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
 
     // Kotlin Coroutine
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
 
     // LiveData & ViewModel
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"

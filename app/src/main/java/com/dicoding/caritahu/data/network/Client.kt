@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Client {
-    private const val baseUrl = "https://newsapi.org/v2/"
+    private const val baseUrl = "https://uneroapi.azurewebsites.net/"
 
     val retrofit: Endpoint by lazy {
         val retrofit = Retrofit.Builder()
