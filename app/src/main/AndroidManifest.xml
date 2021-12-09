@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CariTahu">
         <activity
-            android:name=".SplashScreen"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>

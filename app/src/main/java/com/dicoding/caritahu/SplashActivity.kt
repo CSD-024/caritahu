@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 
 @SuppressLint("CustomSplashScreen")
-class SplashScreen : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -40,7 +40,7 @@ class SplashScreen : AppCompatActivity() {
     private fun launchIntent() {
         CoroutineScope(Dispatchers.Default).launch {
             delay(5000)
-            val intent = Intent(this@SplashScreen, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
