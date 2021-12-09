@@ -1,7 +1,10 @@
 package com.dicoding.caritahu.data.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class HoaxArticle(
     val id: String,
     val authors: String,
@@ -18,7 +21,7 @@ data class HoaxArticle(
     val date: String,
     val tags: String,
     val conclusion: String,
-)
+) : Parcelable
 
 data class HoaxAuthor(
     val id: String,

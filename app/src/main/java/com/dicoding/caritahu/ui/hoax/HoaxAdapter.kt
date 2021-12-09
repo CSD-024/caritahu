@@ -2,6 +2,7 @@ package com.dicoding.caritahu.ui.hoax
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil.calculateDiff
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -26,6 +27,11 @@ class HoaxAdapter(): RecyclerView.Adapter<HoaxAdapter.HoaxViewHolder>() {
                 Glide.with(root)
                     .load(article.picture1)
                     .into(ivThumbnail)
+
+                root.setOnClickListener {
+                    val action = HoaxFragmentDirections.actionHoaxFragmentToDetailHoaxFragment(article)
+                    it.findNavController().navigate(action)
+                }
             }
         }
     }
