@@ -5,16 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.caritahu.data.Repository
-import com.dicoding.caritahu.data.network.model.Article
+import com.dicoding.caritahu.data.network.model.NewsArticle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
 class MainViewModel : ViewModel() {
-    private var _headlines: MutableLiveData<List<Article>> = MutableLiveData()
-    val headlines: LiveData<List<Article>> = _headlines
-
-
+    private var _headlines: MutableLiveData<List<NewsArticle>> = MutableLiveData()
+    val headlines: LiveData<List<NewsArticle>> = _headlines
 
     fun topHeadlines(){
         viewModelScope.launch(Dispatchers.IO) {

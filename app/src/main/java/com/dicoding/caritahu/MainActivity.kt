@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.caritahu.adapter.NewsAdapter
-import com.dicoding.caritahu.data.network.model.Article
+import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setupRV(news: List<Article>) {
+    private fun setupRV(news: List<NewsArticle>) {
         val adapter = NewsAdapter()
         adapter.setData(news)
         binding.rvNews.apply {
