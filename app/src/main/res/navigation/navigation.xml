@@ -6,17 +6,44 @@
     app:startDestination="@id/newsFragment">
 
     <fragment
-        android:id="@+id/hoaxFragment"
-        android:name="com.dicoding.caritahu.ui.hoax.HoaxFragment"
-        android:label="hoax_fragment"
-        tools:layout="@layout/hoax_fragment" />
-    <fragment
         android:id="@+id/newsFragment"
         android:name="com.dicoding.caritahu.ui.news.NewsFragment"
-        android:label="news_fragment"
+        android:label="News"
         tools:layout="@layout/news_fragment" >
         <action
-            android:id="@+id/action_newsFragment_to_hoaxFragment"
-            app:destination="@id/hoaxFragment" />
+            android:id="@+id/action_newsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hoaxFragment"
+        android:name="com.dicoding.caritahu.ui.hoax.HoaxFragment"
+        android:label="Hoax Information"
+        tools:layout="@layout/hoax_fragment" >
+        <action
+            android:id="@+id/action_hoaxFragment_to_detailHoaxFragment"
+            app:destination="@id/detailHoaxFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.dicoding.caritahu.ui.bookmark.BookmarkFragment"
+        android:label="bookmark_fragment"
+        tools:layout="@layout/bookmark_fragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.dicoding.caritahu.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="article"
+            app:argType="com.dicoding.caritahu.data.network.model.NewsArticle" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailHoaxFragment"
+        android:name="com.dicoding.caritahu.ui.detailhoax.DetailHoaxFragment"
+        android:label="fragment_detail_hoax"
+        tools:layout="@layout/fragment_detail_hoax" >
+        <argument
+            android:name="hoax"
+            app:argType="com.dicoding.caritahu.data.network.model.HoaxArticle" />
     </fragment>
 </navigation>
