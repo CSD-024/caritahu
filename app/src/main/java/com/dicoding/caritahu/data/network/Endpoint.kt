@@ -26,4 +26,7 @@ interface Endpoint {
 
     @GET("hoax/authors")
     suspend fun hoaxAuthors(): Response<List<HoaxAuthor>>
+
+    @GET("hoax/authors/{id}")
+    suspend fun hoaxAuthor(@Path("id") id: String): Response<HoaxAuthor>
 }

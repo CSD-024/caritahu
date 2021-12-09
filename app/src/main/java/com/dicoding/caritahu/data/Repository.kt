@@ -28,7 +28,11 @@ object Repository {
         return Client.retrofit.hoaxSearch(query)
     }
 
-    suspend fun hoaxAuthor(): Response<List<HoaxAuthor>> {
+    suspend fun hoaxAuthors(): Response<List<HoaxAuthor>> {
         return Client.retrofit.hoaxAuthors()
+    }
+
+    suspend fun hoaxAuthor(id: String): Response<HoaxAuthor> {
+        return Client.retrofit.hoaxAuthor(id)
     }
 }
