@@ -1,7 +1,7 @@
 package com.dicoding.caritahu.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.dicoding.caritahu.data.network.Article
+import com.dicoding.caritahu.data.network.model.Article
 
 class DiffUtil(
     private val oldList: List<Article>,

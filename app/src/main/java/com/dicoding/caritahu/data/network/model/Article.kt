@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.data.network
+package com.dicoding.caritahu.data.network.model
 
 data class Article(
     val author: String?,
@@ -9,4 +9,8 @@ data class Article(
     val title: String?,
     val url: String?,
     val urlToImage: String?
+)
+
+data class Source(
+    val name: String?
 )

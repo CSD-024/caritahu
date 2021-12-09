@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.calculateDiff
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dicoding.caritahu.data.network.Article
+import com.dicoding.caritahu.data.network.model.Article
 import com.dicoding.caritahu.databinding.ItemNewsBinding
 
 class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {

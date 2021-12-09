@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.caritahu.adapter.NewsAdapter
-import com.dicoding.caritahu.data.network.Article
+import com.dicoding.caritahu.data.network.model.Article
 import com.dicoding.caritahu.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.topHeadlines()
 
-        viewModel.headlines.observe(this, { response ->
-            if (response.articles!!.isNotEmpty()) {
-                setupRV(response.articles)
+        viewModel.headlines.observe(this, { articles ->
+            if (articles.isNotEmpty()){
+                setupRV(articles)
             }
         })
     }
