@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.calculateDiff
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dicoding.caritahu.data.network.model.Article
+import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.ItemNewsBinding
 
 class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
-    private var data = listOf<Article>()
+    private var data = listOf<NewsArticle>()
 
-    fun setData(newData: List<Article>){
+    fun setData(newData: List<NewsArticle>){
         val diffUtil = DiffUtil(data, newData)
         val diffResults = calculateDiff(diffUtil)
         data = newData
@@ -20,7 +20,7 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     }
 
     inner class NewsViewHolder(private val binding: ItemNewsBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(article: Article) {
+        fun bind(article: NewsArticle) {
             binding.apply {
                 tvTitle.text = article.title ?: "Not Included"
                 tvDescription.text = article.description ?: "Not Included"
