@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/hoaxFragment"
+        android:name="com.dicoding.caritahu.ui.hoax.HoaxFragment"
+        android:label="hoax_fragment"
+        tools:layout="@layout/hoax_fragment" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.dicoding.caritahu.ui.news.NewsFragment"
+        android:label="news_fragment"
+        tools:layout="@layout/news_fragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_hoaxFragment"
+            app:destination="@id/hoaxFragment" />
+    </fragment>
+</navigation>
