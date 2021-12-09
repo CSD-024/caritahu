@@ -2,6 +2,7 @@ package com.dicoding.caritahu.ui.news
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil.calculateDiff
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -30,7 +31,8 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                     .into(ivThumbnail)
 
                 root.setOnClickListener {
-                    println(article.url)
+                    val action = NewsFragmentDirections.actionNewsFragmentToDetailFragment(article)
+                    it.findNavController().navigate(action)
                 }
             }
         }

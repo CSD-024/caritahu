@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.dicoding.caritahu.R
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.NewsFragmentBinding
 
@@ -38,10 +36,6 @@ class NewsFragment : Fragment() {
         viewModel.headlines.observe(viewLifecycleOwner, { articles ->
             setupRV(articles)
         })
-
-        binding.btnHoax.setOnClickListener {
-            findNavController().navigate(R.id.action_newsFragment_to_hoaxFragment)
-        }
     }
 
     private fun setupRV(articles: List<NewsArticle>){
