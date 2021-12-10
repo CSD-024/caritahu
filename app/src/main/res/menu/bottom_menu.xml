@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="#666666">
     <item
         android:id="@+id/newsFragment"
-        android:title="News" />
+        android:title="@string/news"
+        app:cnb_iconColor="#9C27B0"
+        android:icon="@mipmap/ic_launcher"/>
     <item
         android:id="@+id/hoaxFragment"
-        android:title="Hoax" />
+        android:title="@string/hoax"
+        app:cnb_iconColor="#ffd600"
+        android:icon="@mipmap/ic_launcher"/>
     <item
         android:id="@+id/bookmarkFragment"
-        android:title="Bookmark" />
+        android:title="@string/bookmark"
+        app:cnb_iconColor="#F44336"
+        android:icon="@mipmap/ic_launcher"/>
 </menu>
