@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.ui.detailhoax
+package com.dicoding.caritahu.view.detailhoax
 
 import android.os.Bundle
 import android.view.LayoutInflater

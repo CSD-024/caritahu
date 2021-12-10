@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.ui.news
+package com.dicoding.caritahu.view.news
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.ItemNewsBinding
+import com.dicoding.caritahu.helper.NewsDiffUtil
 
 class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.ui.hoax
+package com.dicoding.caritahu.view.hoax
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.caritahu.data.network.model.HoaxArticle
 import com.dicoding.caritahu.databinding.ItemHoaxBinding
+import com.dicoding.caritahu.helper.HoaxDiffUtil
 
 class HoaxAdapter(): RecyclerView.Adapter<HoaxAdapter.HoaxViewHolder>() {
     private var data = listOf<HoaxArticle>()

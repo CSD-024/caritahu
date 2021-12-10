@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.ui.news
+package com.dicoding.caritahu.view.news
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.NewsFragmentBinding
+import com.dicoding.caritahu.viewmodel.NewsViewModel
+import com.dicoding.caritahu.viewmodel.ViewModelFactory
 
 class NewsFragment : Fragment() {
 
@@ -18,7 +20,9 @@ class NewsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity())[NewsViewModel::class.java]
+
+        val factory = ViewModelFactory.getInstance(requireActivity().application)
+        viewModel = ViewModelProvider(requireActivity(), factory)[NewsViewModel::class.java]
         viewModel.topHeadlines()
     }
 

@@ -1,4 +1,4 @@
-package com.dicoding.caritahu.ui.hoax
+package com.dicoding.caritahu.view.hoax
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.caritahu.data.network.model.HoaxArticle
 import com.dicoding.caritahu.databinding.HoaxFragmentBinding
+import com.dicoding.caritahu.viewmodel.HoaxViewModel
+import com.dicoding.caritahu.viewmodel.ViewModelFactory
 
 class HoaxFragment : Fragment() {
 
@@ -18,7 +20,9 @@ class HoaxFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity())[HoaxViewModel::class.java]
+
+        val factory = ViewModelFactory.getInstance(requireActivity().application)
+        viewModel = ViewModelProvider(requireActivity(), factory)[HoaxViewModel::class.java]
         viewModel.getLatestHoax()
     }
 

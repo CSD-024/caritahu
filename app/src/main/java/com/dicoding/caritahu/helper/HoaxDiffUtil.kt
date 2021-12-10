@@ -1,11 +1,11 @@
-package com.dicoding.caritahu.ui.news
+package com.dicoding.caritahu.helper
 
 import androidx.recyclerview.widget.DiffUtil
-import com.dicoding.caritahu.data.network.model.NewsArticle
+import com.dicoding.caritahu.data.network.model.HoaxArticle
 
-class NewsDiffUtil(
-    private val oldList: List<NewsArticle>,
-    private val newList: List<NewsArticle>
+class HoaxDiffUtil(
+    private val oldList: List<HoaxArticle>,
+    private val newList: List<HoaxArticle>
 ): DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 
