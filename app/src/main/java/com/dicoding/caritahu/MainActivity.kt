@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.NavigationUI
 import com.dicoding.caritahu.databinding.ActivityMainBinding
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +19,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val botNav = binding.bottomNav
+        val botNav  = binding.bottomNav
+        val chipNav : ChipNavigationBar = binding.chipNav
         val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
         val navController = navHost.navController
 
-        botNav.setupWithNavController(navController)
+        chipNav.setOnItemSelectedListener{ id -> botNav.selectedItemId = id }
+        NavigationUI.setupWithNavController(botNav, navController)
+
         navController.addOnDestinationChangedListener {_, destination, _ ->
             when(destination.id) {
                 R.id.newsFragment -> botNav.visibility = View.VISIBLE
@@ -29,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.bookmarkFragment -> botNav.visibility = View.VISIBLE
                 else -> botNav.visibility = View.GONE
             }
+            chipNav.setItemSelected(destination.id)
         }
     }
 }
