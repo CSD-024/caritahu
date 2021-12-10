@@ -2,4 +2,7 @@
     <string name="app_name">Cari Tahu</string>
     <string name="top_logo_for_animation_splashscreen">Top logo for animation splashscreen</string>
     <string name="bottom_logo_for_animation_splashscreen">bottom logo for animation splashscreen</string>
+    <string name="news">News</string>
+    <string name="hoax">Hoax</string>
+    <string name="bookmark">Bookmark</string>
 </resources>
