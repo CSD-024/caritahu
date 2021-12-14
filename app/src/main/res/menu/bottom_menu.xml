@@ -6,15 +6,15 @@
         android:id="@+id/newsFragment"
         android:title="@string/news"
         app:cnb_iconColor="#9C27B0"
-        android:icon="@mipmap/ic_launcher"/>
+        android:icon="@drawable/news"/>
     <item
         android:id="@+id/hoaxFragment"
         android:title="@string/hoax"
         app:cnb_iconColor="#ffd600"
-        android:icon="@mipmap/ic_launcher"/>
+        android:icon="@drawable/fake_news"/>
     <item
         android:id="@+id/bookmarkFragment"
         android:title="@string/bookmark"
         app:cnb_iconColor="#F44336"
-        android:icon="@mipmap/ic_launcher"/>
+        android:icon="@drawable/ic_bookmark"/>
 </menu>
