@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.dicoding.caritahu.view.news.NewsFragment"
-        android:label="News"
+        android:label="Berita Terkini"
         tools:layout="@layout/news_fragment" >
         <action
             android:id="@+id/action_newsFragment_to_detailFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/hoaxFragment"
         android:name="com.dicoding.caritahu.view.hoax.HoaxFragment"
-        android:label="Hoax Information"
+        android:label="Informasi Hoax"
         tools:layout="@layout/hoax_fragment" >
         <action
             android:id="@+id/action_hoaxFragment_to_detailHoaxFragment"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/bookmarkFragment"
         android:name="com.dicoding.caritahu.view.bookmark.BookmarkFragment"
-        android:label="bookmark_fragment"
+        android:label="Bookmark Berita"
         tools:layout="@layout/bookmark_fragment" >
         <action
             android:id="@+id/action_bookmarkFragment_to_detailFragment"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.dicoding.caritahu.view.detail.DetailFragment"
-        android:label="fragment_detail"
+        android:label="Detail Berita"
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="article"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/detailHoaxFragment"
         android:name="com.dicoding.caritahu.view.detailhoax.DetailHoaxFragment"
-        android:label="fragment_detail_hoax"
+        android:label="Detail Hoax"
         tools:layout="@layout/fragment_detail_hoax" >
         <argument
             android:name="hoax"

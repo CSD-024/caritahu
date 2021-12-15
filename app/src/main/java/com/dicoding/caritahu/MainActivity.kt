@@ -3,15 +3,16 @@ package com.dicoding.caritahu
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.dicoding.caritahu.databinding.ActivityMainBinding
-import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,12 +21,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val botNav  = binding.bottomNav
-        val chipNav : ChipNavigationBar = binding.chipNav
+        val chipNav = binding.chipNav
         val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
-        val navController = navHost.navController
+        navController = navHost.navController
 
         chipNav.setOnItemSelectedListener{ id -> botNav.selectedItemId = id }
         NavigationUI.setupWithNavController(botNav, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController)
 
         navController.addOnDestinationChangedListener {_, destination, _ ->
             when(destination.id) {
@@ -36,5 +38,10 @@ class MainActivity : AppCompatActivity() {
             }
             chipNav.setItemSelected(destination.id)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        navController.navigateUp()
+        return super.onSupportNavigateUp()
     }
 }

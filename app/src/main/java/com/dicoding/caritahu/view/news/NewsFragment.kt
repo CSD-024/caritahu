@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.NewsFragmentBinding
 import com.dicoding.caritahu.viewmodel.NewsViewModel
@@ -40,6 +41,11 @@ class NewsFragment : Fragment() {
         viewModel.headlines.observe(viewLifecycleOwner, { articles ->
             setupRV(articles)
         })
+
+        binding.btnSearch.setOnClickListener {
+            val action = NewsFragmentDirections.actionNewsFragmentToSearchFragment("news")
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupRV(articles: List<NewsArticle>){
