@@ -34,6 +34,9 @@ class ViewModelFactory private constructor(private val application: Application)
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(application) as T
             }
+            modelClass.isAssignableFrom(SearchViewModel::class.java) -> {
+                SearchViewModel(application) as T
+            }
             else -> {
                 throw IllegalAccessException("Unknown ViewModel class: ${modelClass.name}")
             }
