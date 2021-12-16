@@ -92,6 +92,11 @@ class DetailFragment : Fragment() {
             tvTitle.text = article.title
             tvMeta.text = meta
             tvDescription.text = article.description
+
+            btnWeb.setOnClickListener {
+                val action = DetailFragmentDirections.actionDetailFragmentToWebViewFragment(article.url)
+                findNavController().navigate(action)
+            }
         }
     }
 

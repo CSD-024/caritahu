@@ -46,6 +46,9 @@
         <argument
             android:name="article"
             app:argType="com.dicoding.caritahu.data.network.model.NewsArticle" />
+        <action
+            android:id="@+id/action_detailFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailHoaxFragment"
@@ -70,5 +73,16 @@
         <action
             android:id="@+id/action_searchFragment_to_detailHoaxFragment"
             app:destination="@id/detailHoaxFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.dicoding.caritahu.view.webview.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="www.google.com" />
     </fragment>
 </navigation>
