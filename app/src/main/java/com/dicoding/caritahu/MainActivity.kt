@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         chipNav.setOnItemSelectedListener{ id -> botNav.selectedItemId = id }
         NavigationUI.setupWithNavController(botNav, navController)
-        NavigationUI.setupActionBarWithNavController(this, navController)
 
         navController.addOnDestinationChangedListener {_, destination, _ ->
             when(destination.id) {
@@ -38,10 +37,5 @@ class MainActivity : AppCompatActivity() {
             }
             chipNav.setItemSelected(destination.id)
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        navController.navigateUp()
-        return super.onSupportNavigateUp()
     }
 }
