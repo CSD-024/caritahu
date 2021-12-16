@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.dicoding.caritahu.R
 import com.dicoding.caritahu.data.network.model.HoaxArticle
 import com.dicoding.caritahu.databinding.HoaxFragmentBinding
 import com.dicoding.caritahu.viewmodel.HoaxViewModel
@@ -36,6 +38,19 @@ class HoaxFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val topBar = binding.toolbar
+
+        topBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_search -> {
+                    val action = HoaxFragmentDirections.actionHoaxFragmentToSearchFragment("hoax")
+                    findNavController().navigate(action)
+                    true
+                }
+                else -> false
+            }
+        }
 
         viewModel.latestHoax.observe(viewLifecycleOwner, { articles ->
             setupRV(articles)

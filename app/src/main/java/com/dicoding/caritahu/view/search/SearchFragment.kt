@@ -1,10 +1,11 @@
-package com.dicoding.caritahu.search
+package com.dicoding.caritahu.view.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dicoding.caritahu.databinding.SearchFragmentBinding
 import com.dicoding.caritahu.viewmodel.SearchViewModel
@@ -28,6 +29,12 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val topBar = binding.toolbar
+
+        topBar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         binding.tvType.text = args.type
 

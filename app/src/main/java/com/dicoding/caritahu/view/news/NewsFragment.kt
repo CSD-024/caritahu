@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.dicoding.caritahu.R
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.NewsFragmentBinding
 import com.dicoding.caritahu.viewmodel.NewsViewModel
@@ -42,9 +43,17 @@ class NewsFragment : Fragment() {
             setupRV(articles)
         })
 
-        binding.btnSearch.setOnClickListener {
-            val action = NewsFragmentDirections.actionNewsFragmentToSearchFragment("news")
-            findNavController().navigate(action)
+        val topBar = binding.toolbar
+
+        topBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_search -> {
+                    val action = NewsFragmentDirections.actionNewsFragmentToSearchFragment("news")
+                    findNavController().navigate(action)
+                    true
+                }
+                else -> false
+            }
         }
     }
 
