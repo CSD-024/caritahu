@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.dicoding.caritahu.R
 import com.dicoding.caritahu.data.network.model.HoaxArticle
 import com.dicoding.caritahu.databinding.FragmentDetailHoaxBinding
 
@@ -27,6 +29,23 @@ class DetailHoaxFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val topBar = binding.toolbar
+
+        topBar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        topBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_share -> {
+                    println("OK saya share")
+                    true
+                }
+                else -> false
+            }
+        }
+
         setup(args.hoax)
     }
 

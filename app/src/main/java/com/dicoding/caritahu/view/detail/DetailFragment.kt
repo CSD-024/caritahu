@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.dicoding.caritahu.R
@@ -40,6 +41,22 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val article = args.article
+        val topBar = binding.toolbar
+
+        topBar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        topBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_share -> {
+                    println("OK saya share")
+                    true
+                }
+                else -> false
+            }
+        }
+
         setData(article)
         viewModel.getBookmarked(article.title)
         viewModel.isBookmarked.observe(viewLifecycleOwner, {
