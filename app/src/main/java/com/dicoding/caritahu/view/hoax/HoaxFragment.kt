@@ -52,6 +52,10 @@ class HoaxFragment : Fragment() {
             }
         }
 
+        viewModel.status.observe(viewLifecycleOwner, {
+            binding.pb.visibility = if (it) View.GONE else View.VISIBLE
+        })
+
         viewModel.latestHoax.observe(viewLifecycleOwner, { articles ->
             setupRV(articles)
         })

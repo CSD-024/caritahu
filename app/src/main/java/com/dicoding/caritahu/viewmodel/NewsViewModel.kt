@@ -16,11 +16,16 @@ class NewsViewModel(application: Application): ViewModel() {
     private var _headlines: MutableLiveData<List<NewsArticle>> = MutableLiveData()
     val headlines: LiveData<List<NewsArticle>> = _headlines
 
+    private var _status: MutableLiveData<Boolean> = MutableLiveData()
+    val status: LiveData<Boolean> = _status
+
     fun topHeadlines(){
+        _status.value = false
         viewModelScope.launch(Dispatchers.IO) {
             val response = repository.topHeadlines()
             if (response.isSuccessful) {
                 val data = response.body()
+                _status.postValue(true)
                 _headlines.postValue(data!!)
             }
         }

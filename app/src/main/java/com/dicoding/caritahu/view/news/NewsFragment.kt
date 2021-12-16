@@ -39,6 +39,10 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.status.observe(viewLifecycleOwner, { status ->
+            binding.pb.visibility = if (status) View.GONE else View.VISIBLE
+        })
+
         viewModel.headlines.observe(viewLifecycleOwner, { articles ->
             setupRV(articles)
         })

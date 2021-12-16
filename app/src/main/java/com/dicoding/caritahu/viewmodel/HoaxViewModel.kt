@@ -16,11 +16,16 @@ class HoaxViewModel(application: Application): ViewModel() {
     private var _latestHoax: MutableLiveData<List<HoaxArticle>> = MutableLiveData()
     val latestHoax: LiveData<List<HoaxArticle>> get() = _latestHoax
 
+    private var _status: MutableLiveData<Boolean> = MutableLiveData()
+    val status: LiveData<Boolean> = _status
+
     fun getLatestHoax(){
+        _status.value = false
         viewModelScope.launch(Dispatchers.IO) {
             val response = repository.latestHoax()
             if (response.isSuccessful) {
                 val data = response.body()
+                _status.postValue(true)
                 _latestHoax.postValue(data!!)
             }
         }
