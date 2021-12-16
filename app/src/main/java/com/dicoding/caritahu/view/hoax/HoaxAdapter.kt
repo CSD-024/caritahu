@@ -9,8 +9,9 @@ import com.bumptech.glide.Glide
 import com.dicoding.caritahu.data.network.model.HoaxArticle
 import com.dicoding.caritahu.databinding.ItemHoaxBinding
 import com.dicoding.caritahu.helper.HoaxDiffUtil
+import com.dicoding.caritahu.view.search.SearchFragmentDirections
 
-class HoaxAdapter(): RecyclerView.Adapter<HoaxAdapter.HoaxViewHolder>() {
+class HoaxAdapter(private val source: String): RecyclerView.Adapter<HoaxAdapter.HoaxViewHolder>() {
     private var data = listOf<HoaxArticle>()
 
     fun setData(newData: List<HoaxArticle>) {
@@ -30,8 +31,16 @@ class HoaxAdapter(): RecyclerView.Adapter<HoaxAdapter.HoaxViewHolder>() {
                     .into(ivThumbnail)
 
                 root.setOnClickListener {
-                    val action = HoaxFragmentDirections.actionHoaxFragmentToDetailHoaxFragment(article)
-                    it.findNavController().navigate(action)
+                    when(source) {
+                        "list" -> {
+                            val action = HoaxFragmentDirections.actionHoaxFragmentToDetailHoaxFragment(article)
+                            it.findNavController().navigate(action)
+                        }
+                        "search" -> {
+                            val action = SearchFragmentDirections.actionSearchFragmentToDetailHoaxFragment(article)
+                            it.findNavController().navigate(action)
+                        }
+                    }
                 }
             }
         }

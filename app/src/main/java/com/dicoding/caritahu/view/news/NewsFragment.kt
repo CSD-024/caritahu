@@ -62,7 +62,7 @@ class NewsFragment : Fragment() {
     }
 
     private fun setupRV(articles: List<NewsArticle>){
-        val adapter = NewsAdapter()
+        val adapter = NewsAdapter("list")
         adapter.setData(articles)
         binding.rv.apply {
             this.adapter = adapter

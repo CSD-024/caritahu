@@ -67,5 +67,8 @@
         <argument
             android:name="type"
             app:argType="string" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailHoaxFragment"
+            app:destination="@id/detailHoaxFragment" />
     </fragment>
 </navigation>

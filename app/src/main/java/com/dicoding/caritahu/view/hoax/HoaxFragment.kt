@@ -62,7 +62,7 @@ class HoaxFragment : Fragment() {
     }
 
     private fun setupRV(articles: List<HoaxArticle>){
-        val adapter = HoaxAdapter()
+        val adapter = HoaxAdapter("list")
         adapter.setData(articles)
         binding.rv.apply {
             this.adapter = adapter

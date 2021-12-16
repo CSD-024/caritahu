@@ -33,7 +33,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.newsFragment -> botNav.visibility = View.VISIBLE
                 R.id.hoaxFragment -> botNav.visibility = View.VISIBLE
                 R.id.bookmarkFragment -> botNav.visibility = View.VISIBLE
-                else -> botNav.visibility = View.GONE
+                else -> {
+                    botNav.visibility = View.GONE
+                    chipNav.visibility = View.GONE
+                }
             }
             chipNav.setItemSelected(destination.id)
         }

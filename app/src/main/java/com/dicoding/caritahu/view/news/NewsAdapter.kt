@@ -9,8 +9,9 @@ import com.bumptech.glide.Glide
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.ItemNewsBinding
 import com.dicoding.caritahu.helper.NewsDiffUtil
+import com.dicoding.caritahu.view.search.SearchFragmentDirections
 
-class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(private val source: String): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     private var data = listOf<NewsArticle>()
 
@@ -24,7 +25,7 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     inner class NewsViewHolder(private val binding: ItemNewsBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(article: NewsArticle) {
             binding.apply {
-                tvTitle.text = article.title ?: "Not Included"
+                tvTitle.text = article.title
                 tvDescription.text = article.description ?: "Not Included"
 
                 Glide.with(root)
@@ -32,8 +33,17 @@ class NewsAdapter(): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                     .into(ivThumbnail)
 
                 root.setOnClickListener {
-                    val action = NewsFragmentDirections.actionNewsFragmentToDetailFragment(article)
-                    it.findNavController().navigate(action)
+                    when(source) {
+                        "list" -> {
+                            val action = NewsFragmentDirections.actionNewsFragmentToDetailFragment(article)
+                            it.findNavController().navigate(action)
+                        }
+                        "search" -> {
+                            val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(article)
+                            it.findNavController().navigate(action)
+                        }
+                    }
+
                 }
             }
         }
