@@ -25,8 +25,11 @@ class DetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val factory = ViewModelFactory.getInstance(requireActivity().application)
         viewModel = ViewModelProvider(requireActivity(), factory)[DetailViewModel::class.java]
+
+        viewModel.getBookmarked(args.article.title)
     }
 
     override fun onCreateView(
@@ -40,7 +43,6 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val article = args.article
         val topBar = binding.toolbar
 
         topBar.setNavigationOnClickListener {
@@ -57,22 +59,21 @@ class DetailFragment : Fragment() {
             }
         }
 
-        setData(article)
-        viewModel.getBookmarked(article.title)
+        setData(args.article)
+
         viewModel.isBookmarked.observe(viewLifecycleOwner, {
-            println("Bookmark: $it")
             if (it) {
                 binding.fabBookmark.apply {
                     setImageResource(R.drawable.ic_bookmarked)
                     setOnClickListener {
-                        viewModel.remove(article)
+                        viewModel.remove(args.article)
                     }
                 }
             } else {
                 binding.fabBookmark.apply {
                     setImageResource(R.drawable.ic_bookmark)
                     setOnClickListener {
-                        viewModel.insert(article)
+                        viewModel.insert(args.article)
                     }
                 }
             }

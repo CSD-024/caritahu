@@ -19,18 +19,21 @@ class DetailViewModel(application: Application): ViewModel() {
     fun getBookmarked(title: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val article = repository.getBookmarked(title)
-            print(article)
-            _isBookmarked.postValue(article != null)
+            if (article != null) {
+                _isBookmarked.postValue(true)
+            } else {
+                _isBookmarked.postValue(false)
+            }
         }
     }
 
     fun insert(article: NewsArticle) {
         repository.insert(article)
-        getBookmarked(article.title)
+        _isBookmarked.value = true
     }
 
     fun remove(article: NewsArticle) {
         repository.remove(article)
-        getBookmarked(article.title)
+        _isBookmarked.value = false
     }
 }
