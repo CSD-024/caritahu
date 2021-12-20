@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -14,6 +15,7 @@ import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.FragmentDetailBinding
 import com.dicoding.caritahu.viewmodel.DetailViewModel
 import com.dicoding.caritahu.viewmodel.ViewModelFactory
+import com.tapadoo.alerter.Alerter
 
 class DetailFragment : Fragment() {
 
@@ -74,6 +76,16 @@ class DetailFragment : Fragment() {
                     setImageResource(R.drawable.ic_bookmark)
                     setOnClickListener {
                         viewModel.insert(args.article)
+                        Alerter.create(requireActivity())
+                            .setTitle(args.article.title)
+                            .setText("Ditambahkan Ke Bookmarks")
+                            .setBackgroundColorRes(R.color.purple_700)
+                            .setIcon(R.drawable.ic_bookmarked)
+                            .setDuration(4000)
+                            .setOnClickListener {
+                                findNavController().navigate(R.id.bookmarkFragment)
+                            }
+                            .show()
                     }
                 }
             }
