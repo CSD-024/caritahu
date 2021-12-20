@@ -69,6 +69,13 @@ class DetailFragment : Fragment() {
                     setImageResource(R.drawable.ic_bookmarked)
                     setOnClickListener {
                         viewModel.remove(args.article)
+                        Alerter.create(requireActivity())
+                            .setTitle(args.article.title)
+                            .setText("Dihapus Dari Bookmarks")
+                            .setBackgroundColorRes(R.color.purple_700)
+                            .setIcon(R.drawable.ic_bookmark)
+                            .setDuration(4000)
+                            .show()
                     }
                 }
             } else {
