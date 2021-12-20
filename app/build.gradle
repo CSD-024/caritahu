@@ -43,7 +43,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Kotlin Coroutine
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC3'
 
     // LiveData & ViewModel
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
@@ -69,4 +69,7 @@ dependencies {
 
     //Chip Navigation Bar
     implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.4'
+
+    //Alerter
+    implementation 'com.tapadoo.android:alerter:2.0.4'
 }
