@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             app:queryHint="Masukkan pencarian"
             android:inputType="text"
+            app:iconifiedByDefault="false"
             app:layout_constraintTop_toBottomOf="@id/appbar" />
 
     </androidx.cardview.widget.CardView>
