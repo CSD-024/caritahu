@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_newsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/hoaxFragment"
@@ -85,4 +88,9 @@
             app:nullable="true"
             android:defaultValue="www.google.com" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.dicoding.caritahu.view.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
