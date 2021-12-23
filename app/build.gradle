@@ -72,4 +72,7 @@ dependencies {
 
     //Alerter
     implementation 'com.tapadoo.android:alerter:2.0.4'
+
+    //Preferences
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
 }
