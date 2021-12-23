@@ -5,4 +5,6 @@
     <string name="news">News</string>
     <string name="hoax">Hoax</string>
     <string name="bookmark">Bookmark</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="Settings">Settings</string>
 </resources>
