@@ -17,4 +17,11 @@
         android:title="@string/bookmark"
         app:cnb_iconColor="#F44336"
         android:icon="@drawable/ic_bookmark"/>
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="@string/Settings"
+        app:cnb_iconColor="#76ff03"
+        android:icon="@drawable/ic_baseline_settings_24"
+        />
 </menu>
