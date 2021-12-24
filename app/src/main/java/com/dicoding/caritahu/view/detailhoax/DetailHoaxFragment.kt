@@ -1,6 +1,8 @@
 package com.dicoding.caritahu.view.detailhoax
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,9 @@ import com.bumptech.glide.Glide
 import com.dicoding.caritahu.R
 import com.dicoding.caritahu.data.network.model.HoaxArticle
 import com.dicoding.caritahu.databinding.FragmentDetailHoaxBinding
+import com.dicoding.caritahu.helper.TextViewHelper.convertToHtml
+import com.dicoding.caritahu.helper.TextViewHelper.hoaxDetailDate
+import com.dicoding.caritahu.helper.TextViewHelper.referenceStyling
 
 class DetailHoaxFragment : Fragment() {
 
@@ -39,7 +44,7 @@ class DetailHoaxFragment : Fragment() {
         topBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_share -> {
-                    println("OK saya share")
+                    share(args.hoax.title)
                     true
                 }
                 else -> false
@@ -56,9 +61,34 @@ class DetailHoaxFragment : Fragment() {
                 .into(ivImage)
 
             tvTitle.text = hoax.title
-            tvSource.text = "Sumber media ${hoax.source_issue}, tanggal ${hoax.date}"
+            tvSource.text = resources.getString(
+                R.string.tv_source,
+                hoax.source_issue,
+                hoaxDetailDate(hoax.date)
+            )
+
+            tvContent.text = convertToHtml(hoax.content)
+            tvFact.text = convertToHtml(hoax.fact)
             tvConclusion.text = hoax.conclusion
+            tvReferences.text = referenceStyling(hoax.references)
+
+            // Clickable Link on TextView
+            tvContent.movementMethod = LinkMovementMethod.getInstance()
+            tvFact.movementMethod = LinkMovementMethod.getInstance()
+            tvConclusion.movementMethod = LinkMovementMethod.getInstance()
         }
+    }
+
+    private fun share(hoaxTitle: String) {
+        val message = resources.getString(R.string.share_hoax, hoaxTitle)
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, message)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
     override fun onDestroyView() {

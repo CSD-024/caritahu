@@ -1,5 +1,6 @@
 package com.dicoding.caritahu.view.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -54,7 +55,7 @@ class DetailFragment : Fragment() {
         topBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_share -> {
-                    println("OK saya share")
+                    share(args.article.title, args.article.url!!)
                     true
                 }
                 else -> false
@@ -117,6 +118,20 @@ class DetailFragment : Fragment() {
                 findNavController().navigate(action)
             }
         }
+    }
+
+    private fun share(title: String, url: String) {
+
+        val message = resources.getString(R.string.share_news, title, url)
+
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, message)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 
     override fun onDestroyView() {

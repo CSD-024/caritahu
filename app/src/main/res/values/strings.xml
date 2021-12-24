@@ -24,6 +24,7 @@
     <string name="lbl_conclusion">Kesimpulan</string>
     <string name="lbl_fact">Fakta</string>
     <string name="lbl_reference">Referensi</string>
+    <string name="lbl_content">Konten</string>
     <string name="tv_source">Sumber media %1$s, di upload pada %2$s</string>
 
     <!-- Content Description -->
@@ -34,4 +35,8 @@
     <!-- Setting Page -->
     <string name="Settings">Settings</string>
     <string name="dark_mode">Dark Mode</string>
+
+    <!-- Share Text -->
+    <string name="share_news">Cari Tahu! %1$s \n %2$s</string>
+    <string name="share_hoax">Cari Tahu! Hati hati hoaks! %1$s</string>
 </resources>
