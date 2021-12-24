@@ -17,7 +17,7 @@
             android:layout_height="150dp"
             android:layout_margin="8dp"
             android:scaleType="center"
-            android:contentDescription="Content Thumbnail"
+            android:contentDescription="@string/content_thumbnail"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>

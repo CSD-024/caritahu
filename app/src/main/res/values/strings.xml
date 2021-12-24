@@ -2,9 +2,36 @@
     <string name="app_name">Cari Tahu</string>
     <string name="top_logo_for_animation_splashscreen">Top logo for animation splashscreen</string>
     <string name="bottom_logo_for_animation_splashscreen">bottom logo for animation splashscreen</string>
-    <string name="news">News</string>
-    <string name="hoax">Hoax</string>
+
+    <string name="news">Berita</string>
+    <string name="hoax">Hoaks</string>
     <string name="bookmark">Bookmark</string>
-    <string name="dark_mode">Dark Mode</string>
+
+    <!-- Title toolbar -->
+    <string name="title_hoax_list">Informasi Hoaks</string>
+    <string name="title_news_list">Berita Terbaru</string>
+    <string name="title_web_views">Baca Berita</string>
+    <string name="title_detail_hoax">Detail Hoaks</string>
+    <string name="title_news_detail">Detail Berita</string>
+
+    <!-- Bookmark -->
+    <string name="empty_bookmark">Bookmark Kosong</string>
+
+    <!-- Detail News Label -->
+    <string name="read_more">Baca selengkapnya disini</string>
+
+    <!-- Detail Hoax Label -->
+    <string name="lbl_conclusion">Kesimpulan</string>
+    <string name="lbl_fact">Fakta</string>
+    <string name="lbl_reference">Referensi</string>
+    <string name="tv_source">Sumber media %1$s, di upload pada %2$s</string>
+
+    <!-- Content Description -->
+    <string name="add_bookmark">Add Bookmark</string>
+    <string name="content_thumbnail">Content Thumbnail</string>
+    <string name="lbl_image_hoax">Image Hoax</string>
+
+    <!-- Setting Page -->
     <string name="Settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>
