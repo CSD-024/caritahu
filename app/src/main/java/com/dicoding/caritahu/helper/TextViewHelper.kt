@@ -6,6 +6,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BulletSpan
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 object TextViewHelper {
@@ -25,6 +26,17 @@ object TextViewHelper {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val dateParse = LocalDate.parse(currentFormat, dateFormat)
+
+            "${dateParse.dayOfWeek}, ${dateParse.dayOfMonth} ${dateParse.month} ${dateParse.year}"
+        } else {
+            currentFormat
+        }
+    }
+
+    fun newsDetailDate(currentFormat: String): String {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
+            val dateParse = LocalDate.parse(currentFormat, formatter)
 
             "${dateParse.dayOfWeek}, ${dateParse.dayOfMonth} ${dateParse.month} ${dateParse.year}"
         } else {

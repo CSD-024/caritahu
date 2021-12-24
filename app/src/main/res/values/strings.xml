@@ -19,6 +19,7 @@
 
     <!-- Detail News Label -->
     <string name="read_more">Baca selengkapnya disini</string>
+    <string name="news_writer">Ditulis oleh %1$s, pada %2$s</string>
 
     <!-- Detail Hoax Label -->
     <string name="lbl_conclusion">Kesimpulan</string>

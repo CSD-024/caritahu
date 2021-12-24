@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.dicoding.caritahu.R
 import com.dicoding.caritahu.data.network.model.NewsArticle
 import com.dicoding.caritahu.databinding.FragmentDetailBinding
+import com.dicoding.caritahu.helper.TextViewHelper.newsDetailDate
 import com.dicoding.caritahu.viewmodel.DetailViewModel
 import com.dicoding.caritahu.viewmodel.ViewModelFactory
 import com.tapadoo.alerter.Alerter
@@ -102,7 +103,11 @@ class DetailFragment : Fragment() {
 
     private fun setData(article: NewsArticle) {
         val author = article.author ?: "Penulis"
-        val meta = "Ditulis oleh ${author}, ${article.source?.name} pada tanggal ${article.publishedAt}"
+        val meta = resources.getString(
+            R.string.news_writer,
+            author,
+            newsDetailDate(article.publishedAt!!)
+        )
 
         binding.apply {
             Glide.with(root)
